@@ -3,10 +3,10 @@ from django.db import models
 
 class TodoTask(models.Model):
     title = models.CharField(max_length=64)
-    description = models.TextField()
+    description = models.TextField(blank=True, null=True)
     is_completed = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
-    deadline = models.DateTimeField(null=True, blank=True)
+    deadline = models.DateField(null=True, blank=True)
 
     def __str__(self):
         return f"Task: {self.title}"
